@@ -18,9 +18,12 @@ dotenv.config();
 connectDB();
 
 app.use(cors({
-  origin: 'https://protfolio-vodd.vercel.app/', // your frontend URL
-  credentials: true
+  origin: 'https://protfolio-vodd.vercel.app',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
 // Middleware
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
