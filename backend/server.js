@@ -18,7 +18,7 @@ dotenv.config();
 connectDB();
 
 app.use(cors({
-  origin: 'http://localhost:5173', // your frontend URL
+  origin: 'https://protfolio-vodd.vercel.app/', // your frontend URL
   credentials: true
 }));
 // Middleware
