@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError('');
     try {
-      const res = await axios.post('/api/auth/login', { email, password });
+      const res = await axios.post('/auth/login', { email, password });
       setUser(res.data);
       setToken(res.data.token);
       setLoading(false);
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError('');
     try {
-      const res = await axios.post('/api/auth/register', { name, email, password, confirmPassword });
+      const res = await axios.post('/auth/register', { name, email, password, confirmPassword });
       setUser(res.data);
       setToken(res.data.token);
       setLoading(false);
