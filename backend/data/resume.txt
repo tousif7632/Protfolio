@@ -1,0 +1,63 @@
+Name: MD TOUSIF ALAM
+Title: Full Stack MERN Developer
+Location: Sector-62, Noida
+Email: mdtousifalam85@gmail.com
+Phone: +91 7857024383
+GitHub: github.com/tousif7632
+LinkedIn: linkedin.com/in/md-tousif-alam-25782327a
+
+Professional Summary:
+Highly motivated Full Stack MERN Developer with 2.3+ years of experience in building scalable web applications using React.js, Node.js, Express.js, and MongoDB. Strong problem-solving skills with a record of delivering high-performance solutions in Agile environments.
+
+Experience:
+1. Xotive Technologies (Noida, Apr 2023 – Present)
+   - Role: Full Stack MERN Developer
+   - Led 11-member team, delivered 45+ features.
+   - Improved ERP system, increased revenue by 25%.
+   - Promoted within 6 months.
+   - Mentored junior developers.
+   - Optimized MongoDB for 74K+ requests/sec.
+   - Lighthouse score: 100/100
+
+2. YAV Technologies (Bangalore, 2022 – 2023)
+   - Role: Full Stack Developer
+   - Built apps using React, Node.js, Sails.js
+   - Used MySQL, PostgreSQL, MongoDB
+   - 200+ unit tests, 100% coverage
+   - Integrated Maps & Payment Gateways
+
+Projects:
+1. E-Commerce Admin Dashboard
+   - Stack: React, Node.js, Express, MongoDB, Firebase
+   - Real-time updates, JWT Auth, Payment Gateway
+
+2. AI Coding Assistant (like Devin)
+   - Stack: MERN, OpenAI, Gemini, Socket.io
+   - Real-time chat and contextual code generation
+
+3. Task Management System (Trello Clone)
+   - Stack: Next.js, Tailwind, Node.js, MongoDB, OpenAI
+   - Drag-and-drop tasks, real-time chat, auth, filters
+
+Education:
+Bachelor of Science in Mathematics
+Lalit Narayan Mithila University, Bihar (2018 – 2021)
+
+Certifications:
+- SQL for Developers – Nxtwave
+- JavaScript & React – Nxtwave
+- Backend Node.js – Nxtwave
+
+Skills:
+Languages: JavaScript, TypeScript, HTML, CSS
+Frontend: React.js, Next.js, Tailwind CSS
+Backend: Node.js, Express.js
+Databases: MongoDB, MySQL, PostgreSQL
+Tools: Git, Postman, Firebase, Heroku, Vercel, Render, Netlify
+Concepts: REST APIs, JWT Auth, Redux, State Management, MVC, CI/CD, LangChain, Prompt Engineering, Scalable Architecture, LLM Integration
+
+Soft Skills:
+- Team Leadership
+- Agile Collaboration
+- Strong Problem-Solving
+- Effective Communication
