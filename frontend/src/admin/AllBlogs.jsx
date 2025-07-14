@@ -37,6 +37,7 @@ const AllBlogs = () => {
           }
         });
         fetchBlogs();
+        setTimeout(() => navigate('/admin/blogs'), 500);
       } catch {
         alert('Failed to delete blog.');
       }

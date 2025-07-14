@@ -37,6 +37,7 @@ const AllProjects = () => {
           }
         });
         fetchProjects();
+        setTimeout(() => navigate('/admin/projects'), 500);
       } catch {
         alert('Failed to delete project.');
       }

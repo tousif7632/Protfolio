@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 import { useAuth } from '../context/AuthContext';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaHeading, FaRegFileAlt, FaImage, FaCode, FaGithub, FaExternalLinkAlt, FaEdit, FaProjectDiagram } from 'react-icons/fa';
 
 const AddProject = () => {
   const { user } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
   const query = new URLSearchParams(location.search);
   const id = query.get('id');
 
@@ -24,7 +25,7 @@ const AddProject = () => {
   useEffect(() => {
     if (id) {
       setLoading(true);
-      axios.get(`/api/projects/${id}`)
+      api.get(`/projects/${id}`)
         .then(res => {
           const project = res.data;
           setForm({
@@ -63,12 +64,14 @@ const AddProject = () => {
         techStack: form.techStack.split(',').map(t => t.trim()).filter(Boolean),
       };
       if (id) {
-        await axios.put(`/api/projects/${id}`, payload);
+        await api.put(`/projects/${id}`, payload);
         setStatus('Project updated successfully!');
+        setTimeout(() => navigate('/admin/projects'), 1000);
       } else {
-        await axios.post('/api/projects/project', payload);
+        await api.post('/projects/project', payload);
         setStatus('Project added successfully!');
         setForm({ title: '', description: '', image: '', techStack: '', githubLink: '', liveLink: '' });
+        setTimeout(() => navigate('/admin/projects'), 1000);
       }
     } catch (err) {
       setStatus('Failed to save project.');

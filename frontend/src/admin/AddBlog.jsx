@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 import { useAuth } from '../context/AuthContext';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaHeading, FaUser, FaImage, FaTags, FaListAlt, FaCheck, FaEdit, FaBookOpen } from 'react-icons/fa';
 
 const AddBlog = () => {
   const { user } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
   const query = new URLSearchParams(location.search);
   const id = query.get('id');
 
@@ -25,7 +26,7 @@ const AddBlog = () => {
   useEffect(() => {
     if (id) {
       setLoading(true);
-      axios.get(`/api/blogs/${id}`)
+      api.get(`/blogs/${id}`)
         .then(res => {
           const blog = res.data;
           setForm({
@@ -68,12 +69,14 @@ const AddBlog = () => {
         tags: form.tags.split(',').map(t => t.trim()).filter(Boolean),
       };
       if (id) {
-        await axios.put(`/api/blogs/${id}`, payload);
+        await api.put(`/blogs/${id}`, payload);
         setStatus('Blog updated successfully!');
+        setTimeout(() => navigate('/admin/blogs'), 1000);
       } else {
-        await axios.post('/api/blogs/blog', payload);
+        await api.post('/blogs', payload);
         setStatus('Blog added successfully!');
         setForm({ title: '', author: '', content: '', image: '', tags: '', category: '', published: false });
+        setTimeout(() => navigate('/admin/blogs'), 1000);
       }
     } catch (err) {
       setStatus('Failed to save blog.');
