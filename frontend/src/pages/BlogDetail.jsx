@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import api from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
 const HeartFilled = () => (
@@ -42,7 +42,7 @@ const BlogDetail = () => {
   const fetchBlog = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`/api/blogs/${id}`);
+      const res = await api.get(`/blogs/${id}`);
       setBlog(res.data);
       setComments(res.data.comments || []);
       setLoading(false);
@@ -66,7 +66,7 @@ const BlogDetail = () => {
     e.preventDefault();
     setCommentStatus('');
     try {
-      const res = await axios.post(`/api/blogs/${id}/comment`, {
+      const res = await api.post(`/blogs/${id}/comment`, {
         user: commentForm.user,
         comment: commentForm.comment,
       });
@@ -93,7 +93,7 @@ const BlogDetail = () => {
     setLikedComments(newLikedComments);
     setLikedCommentsState(newLikedComments);
     try {
-      await axios.post(`/api/blogs/${id}/comment/${commentId}/like`); // backend just updates count
+      await api.post(`/blogs/${id}/comment/${commentId}/like`); // backend just updates count
       fetchBlog();
     } catch {}
     setLikeLoading(l => ({ ...l, [commentId]: false }));
@@ -116,7 +116,7 @@ const BlogDetail = () => {
     const reply = replyForms[commentId];
     if (!reply || !reply.user || !reply.comment) return;
     try {
-      await axios.post(`/api/blogs/${id}/comment/${commentId}/reply`, reply);
+      await api.post(`/blogs/${id}/comment/${commentId}/reply`, reply);
       setReplyForms(f => ({ ...f, [commentId]: { user: '', comment: '' } }));
       fetchBlog();
     } catch {}
@@ -132,7 +132,7 @@ const BlogDetail = () => {
     if (window.confirm('Are you sure you want to delete this comment?')) {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`/api/blogs/${id}/comment/${commentId}`, {
+        await api.delete(`/blogs/${id}/comment/${commentId}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -154,7 +154,7 @@ const BlogDetail = () => {
     if (window.confirm('Are you sure you want to delete this reply?')) {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`/api/blogs/${id}/comment/${commentId}/reply/${replyId}`, {
+        await api.delete(`/blogs/${id}/comment/${commentId}/reply/${replyId}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }

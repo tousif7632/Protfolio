@@ -537,7 +537,7 @@ const Home = () => {
               Hire Me
             </a>
             <a
-              href="/api/resume"
+              href={`${import.meta.env.VITE_API_BASE_URL}/resume`}
               download
               className="inline-block px-10 py-2 rounded-full bg-gradient-to-r from-blue-700 to-cyan-400 shadow-lg font-medium text-base uppercase tracking-wide flex items-center gap-2 hover:scale-105 hover:from-cyan-400 hover:to-blue-700 transition-all duration-200"
             >

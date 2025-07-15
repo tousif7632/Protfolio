@@ -137,7 +137,7 @@ const About = () => {
                 <div className="absolute inset-1 rounded-full bg-white p-1"></div>
                 {/* Profile image */}
                 <img
-                  src="/public/image01.jpg"
+                  src="/image01.jpg"
                   alt="Profile"
                   className="relative w-28 h-28 object-cover rounded-full shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer"
                   style={{ zIndex: 1 }}
